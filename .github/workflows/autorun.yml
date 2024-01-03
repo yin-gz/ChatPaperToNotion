@@ -1,0 +1,28 @@
+name: autorun
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 7 * * *" ## 想要运行的小时-8即为填入值例如：bj15点运行 填15-8=7
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: papertonotion sync
+        run: |
+          python run_auto.py "${{secrets.USE_OTHER_API}}" "${{secrets.API_KEYS}}" "${{secrets.DATABASE_ID}}" "${{secrets.NOTION_TOKEN}}" "${{secrets.SEARCH_KEY_WORDS}}" "${{ github.ref }}" "${{ github.repository }}"
+      

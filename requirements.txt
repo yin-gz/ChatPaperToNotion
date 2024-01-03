@@ -1,0 +1,9 @@
+notion-client
+bs4
+openai == 0.28.1
+Pillow
+tiktoken
+tenacity
+requests
+PyMuPDF
+markdown
