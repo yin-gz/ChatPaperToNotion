@@ -40,7 +40,7 @@
          ```
 2. 安装requirements.txt
    ```
-   pip install -r requirement.txt 
+   pip install -r requirements.txt 
    ```
    
 3. 修改run_local.py 中的search_key_words为所需要的
