@@ -2,7 +2,7 @@ notion-client
 bs4
 openai == 0.28.1
 Pillow
-tiktoken
+tiktoken==0.5.1
 tenacity
 requests
 PyMuPDF
